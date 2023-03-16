@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .img{   width: 55%;
+        display: table;
+        height: 55%;
+        box-shadow: 9px 8px 20px 0px black;        
+        border-radius: 20px;
+        object-fit: cover;
+    }
+    .img:hover{width: 60%;
+        height: 60%;
+        transition: 0.7s;
+    }
+    .h1{
+        color: bisque;
+    }
+    .description{
+        text-align: justify;
+        font-size: 18px;
+    }
+</style>
+<title>Search reuslt</title>
+<div class="container">
+    <div class="row">
+        {% for i in data %}
+        <div class="col-lg-4">
+            <h1 class="h1" >{{i.title}}</h1><br>
+            <img src="{{i.image.url}}" class="img">
+            <br><a href="{% url 'rmore' i.id %}" class="btn btn-outline-success">Readmore</a><br>
+            <br>
+            <h4>{{i.created_by}}</h4><br>
+            {{i.created_on}}<br>            
+        </div>
+        {% endfor %} 
+    </div>
+</div>
+{% if messages %}
+{% for i in messages %}
+<script>
+alert("{{i}}")    
+</script>
+{% endfor %}
+{% endif %}
+{% endblock %}

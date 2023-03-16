@@ -1,0 +1,58 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content%}
+<title>Profile</title>
+<style>
+  .card{
+    margin-top: 1vh;
+  }
+  .card-img-top{
+    height: 500px;
+    width: 500px;
+  }
+  .profile{
+        color: black;
+    
+      }
+    .abc{
+        padding-top: 60px;
+        
+    }
+    .frist{
+        margin-top: -4.5%;
+    }
+    
+</style>
+<div class="container-fluid frist">
+    <div class="row">
+      <div class="col-lg">
+         <!-- One of three columns   -->
+      </div>
+     <div class="col-lg profile">
+        <div class="abc">
+            <body><div class="card">
+              <img src="{{data.image.url}}" class="card-img-top" >
+              <div class="card-body">
+                <h5 class="card-title">{{user}}</h5>
+                <form action="" method="post">
+                  {% csrf_token %}
+                  <br>
+                  {{user.email}}<br>
+                   <br>
+                  <label for="">TO CHANGE THE PROFILE PICTURE CLICK BELOW </label><br>
+                  <a href="{% url 'imgupdate' data.id %}" class="btn btn-success">edit</a>
+                  
+              </form>
+              </div>
+            </div>
+            </body>
+            
+        </div>        
+      </div>
+      <div class="col-lg">
+        <!-- One of three columns -->
+      </div>
+    </div>
+    </div>
+{% endblock %}

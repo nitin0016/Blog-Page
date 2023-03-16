@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+<title>Signin</title>
+<div class="container">
+    <div class="alert alert-danger" role="alert">
+        Please Login to Continue
+      </div>
+<form action="" method="post">
+    {%csrf_token%}
+    <div class="form-group">
+        <label for="">Username</label>
+        <input type="text" name="username" class="form-control" id="" required>
+        <label for="">Password</label>
+        <input type="password" name="password" class="form-control" id="" required>
+        <br>
+        <button type="submit" class="btn btn-success">Login</button>
+    </div>
+</form>
+
+{% if messages %}
+{% for i in messages %}
+<script>
+    alert('{{i}}')
+</script>
+{% endfor %}
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<title>Signin</title>
+<div class="container">
+
+<form method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <div class="form-group">
+        <label for="">Username</label>
+        <input type="text" name="username" class="form-control" id="" required>
+        <label for="">Email</label>
+        <input type="email" name="email" class="form-control" id="" required>
+        <label for="">Password</label>
+        <input type="password" name="password" class="form-control" id="" required>
+        <label for="">Confirm Password</label>
+        <input type="password" name="password2" class="form-control" id="" required>
+        <br>
+        <label for="profile">Add Image</label><br>
+        <input type="file" id="image" name="image" class="form-control" id="">
+        <br>
+        <button type="submit" class="btn btn-success">Signup</button>
+        
+    </div>
+</form>
+
+{% if messages %}
+{% for i in messages %}
+<script>
+    alert('{{i}}')
+</script>
+{% endfor %}
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<title>Read More</title>
+
+<style>
+    .img{
+        width: 20%;
+        display: table;
+        margin: auto;
+    }
+</style>
+<div class="container">
+    <h1 class="h1" align="center">{{i.title}}</h1><br>
+        <img src="{{i.image.url}}" class="img"> <br>
+        <p>{{i.description|safe}}</p>
+    <h4 class="creator" id="created_by">{{i.created_by}}</h4>
+    {{i.created_on}}<br>
+    {% if user.username == i.created_by %}
+    <a href="{% url 'editblog' i.id %}" class="btn btn-outline-success">Edit</a>
+    <a href="{% url 'deleteblog' i.id %}" class="btn btn-outline-success">Delete</a><br>
+    {% endif %}
+
+</div>
+
+
+
+
+
+
+{% endblock %}
