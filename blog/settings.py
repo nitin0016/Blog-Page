@@ -138,6 +138,7 @@ cloudinary.config(
   cloud_name = "dnlopo3c6", 
   api_key = "554495433188296", 
   api_secret = "5Fo2qtzYKBhnGOpNTH799ehtZqs",
+  api_proxy = "http://proxy.server:3128",
   secure = True
 )
 
