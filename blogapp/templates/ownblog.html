@@ -20,13 +20,16 @@
         height: 60%;
         transition: 0.7s;
     }
+    .row{
+        text-align:start;
+    }
 </style>
 <title>Home</title>
-<div class="container">
+<div class="container-fluid">
     {% if data %}
-    <div class="row">
+    <div class="row gap-5">
         {% for i in data %}
-        <div class="col-lg-3">
+        <div class="col-md-3">
             <h1 class="h1">{{i.title}}</h1><br>
             <img src="{{i.image.url}}" class="img">
             <br><a href="{% url 'rmore' i.id %}" class="btn btn-outline-success">Readmore</a><br>
